@@ -1,0 +1,14 @@
+.del-btn{
+    cursor: pointer;
+}
+
+.header {
+    background: #210b3e;
+    padding: 10px;
+    color: #fff;
+}
+
+.user{
+    font-size: 22px;
+    color: #fff!important;
+}

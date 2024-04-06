@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="d-flex my-3 header">
+        <div class="text-info user">{{user}}</div>
+        <div class="float-right ml-auto">
+            <a class="text-danger text-underline" (click)="logout()">Logout</a><br><br>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add Post +</button>
+        </div>
+        </div>
+    <div class="alert alert-info">Your posts here</div>
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let post of notes">{{post.text}} <br><small class="text-muted">{{post.time | date: 'short'}}</small> <span class="text-danger del-btn float-right" (click)="del(post._id)">Delete</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form class="form">
+                <input type="text" class="form-control" #post name="post" />
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addPost(post)">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

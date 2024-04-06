@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-sm-8 offset-sm-2 login-form">
+          <h1 class="mb-4">Sporty Login</h1>
+          <div class="text-warning" *ngIf="showMessage">{{showMessage}}</div>
+            <form *ngIf="!isRegister" [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">User Name</label>
+                  <input type="text" class="form-control" name="userName" formControlName="userName" aria-describedby="emailHelp">
+                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" formControlName="password" name="password">
+                </div>
+                <!-- <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div> -->
+                <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Submit</button>
+              </form>
+              <form *ngIf="isRegister" [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+                <div class="form-group">
+                  <label for="userName">User Name</label>
+                  <input type="text" class="form-control" name="userName" formControlName="userName" aria-describedby="emailHelp">
+                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="text" class="form-control" name="email" formControlName="email" aria-describedby="emailHelp">
+                  <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" formControlName="password" name="password">
+                </div>
+                <!-- <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div> -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+              <p class="mt-2">New user <a class="text-info" (click)="changeStatus()">{{!isRegister? 'Sign up': 'Sign in'}}</a> here</p>
+        </div>
+    </div>
+</div>
